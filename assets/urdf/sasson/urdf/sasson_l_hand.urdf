@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com)
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="sasson_l_hand">
+  <link name="base_arm">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.035"/>
+      </geometry>
+    </visual>
+  </link>
+  <link
+    name="left_forearm">
+    <inertial>
+      <origin
+        xyz="3.80103800906584E-07 -6.19017536118704E-08 0.0575337655983665"
+        rpy="0 0 0" />
+      <mass
+        value="0.616059009340246" />
+      <inertia
+        ixx="0.000666466824188617"
+        ixy="-1.57530515776307E-09"
+        ixz="-6.0823527086974E-09"
+        iyy="0.000670082341584355"
+        iyz="-4.18836443178143E-09"
+        izz="0.000220987165628187" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/left-forearm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/left-forearm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_forearm_roll"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="base_arm" />
+    <child
+      link="left_forearm" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="9"
+      velocity="42" />
+    <dynamics
+      damping="0"
+      friction="0.15" />
+  </joint>
+  <link
+    name="left_wrist_pitch">
+    <inertial>
+      <origin
+        xyz="0.0120053724730526 0.00230113958189088 3.88353615932147E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.0343757959022887" />
+      <inertia
+        ixx="7.45648554806197E-06"
+        ixy="-5.585088708131E-08"
+        ixz="1.34032828550268E-12"
+        iyy="7.68560951779821E-06"
+        iyz="-2.50250048129867E-12"
+        izz="3.00086227578836E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/left-wrist-pitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/left-wrist-pitch.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="left_wrist_pitch"
+    type="revolute">
+    <origin
+      xyz="0 0 0.1155"
+      rpy="-0.05662 -1.5708 1.6264" />
+    <parent
+      link="left_forearm" />
+    <child
+      link="left_wrist_pitch" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.79"
+      upper="0.79"
+      effort="9"
+      velocity="42" />
+    <dynamics
+      damping="0"
+      friction="0.15" />
+  </joint>
+  <link
+    name="left_hand">
+    <inertial>
+      <origin
+        xyz="0.0295216043532349 0.00025780383330487 -0.01061816128211"
+        rpy="0 0 0" />
+      <mass
+        value="0.191593740484523" />
+      <inertia
+        ixx="4.76202356135605E-05"
+        ixy="-1.26926287563264E-06"
+        ixz="-1.38137834807306E-06"
+        iyy="7.19817756716107E-05"
+        iyz="6.18210331762323E-08"
+        izz="8.10174624703129E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/left-hand.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/left-hand.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <link name="left_hand_palm">
+    <inertial>
+      <mass
+        value="0.001" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.001"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint
+    name="left_hand_palm"
+    type="fixed">
+    <origin
+      xyz="0.060 0.0015 -0.01"
+      rpy="0 0 0" />
+    <parent
+      link="left_hand" />
+    <child
+      link="left_hand_palm" />
+  </joint>
+  <joint
+    name="left_wrist_yaw"
+    type="revolute">
+    <origin
+      xyz="0.017 0.012 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="left_wrist_pitch" />
+    <child
+      link="left_hand" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.52"
+      upper="0.52"
+      effort="9"
+      velocity="42" />
+    <dynamics
+      damping="0"
+      friction="0.15" />
+  </joint>
+  <link
+    name="left_thumb">
+    <inertial>
+      <origin
+        xyz="0.0353304074990149 0.00448081749082252 -0.00550000000000078"
+        rpy="0 0 0" />
+      <mass
+        value="0.0262995066859833" />
+      <inertia
+        ixx="2.82517718813588E-06"
+        ixy="-4.20174090322368E-06"
+        ixz="-3.81164826264435E-21"
+        iyy="1.50442373226497E-05"
+        iyz="7.19978005166155E-21"
+        izz="1.75774931470922E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/left-thumb.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+<!--    <collision>-->
+<!--      <origin-->
+<!--        xyz="0 0 0"-->
+<!--        rpy="0 0 0" />-->
+<!--      <geometry>-->
+<!--        <mesh-->
+<!--          filename="../meshes/left-thumb.STL" />-->
+<!--      </geometry>-->
+<!--    </collision>-->
+    <collision>
+      <origin
+        xyz="0.02 -0.00025 -0.0055"
+        rpy="0 -1.5708 -0.175" />
+      <geometry>
+        <cylinder radius="0.005" length="0.045" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        xyz="0.058 0.01425 -0.0055"
+        rpy="0 -1.5708 0.88" />
+      <geometry>
+        <cylinder radius="0.005" length="0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_thumb"
+    type="revolute">
+    <origin
+      xyz="0.055 0.014 -0.0155"
+      rpy="3.1416 0 0.2618" />
+    <parent
+      link="left_hand" />
+    <child
+      link="left_thumb" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.7"
+      upper="0.17"
+      effort="6"
+      velocity="60" />
+    <dynamics
+      damping="0"
+      friction="0.15" />
+  </joint>
+  <link name="left_thumb_tip">
+    <inertial>
+      <mass
+        value="0.001" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.001"/>
+      </geometry>
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.003"/>
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="left_thumb_tip"
+    type="fixed">
+    <origin
+      xyz="0.065 0.022 -0.0055"
+      rpy="0 0 0" />
+    <parent
+      link="left_thumb" />
+    <child
+      link="left_thumb_tip" />
+  </joint>
+  <link
+    name="left_finger_1">
+    <inertial>
+      <origin
+        xyz="0.0353304074990106 -0.00448081749082208 0.00435000000000052"
+        rpy="0 0 0" />
+      <mass
+        value="0.0262995066859832" />
+      <inertia
+        ixx="2.82517718813583E-06"
+        ixy="4.20174090322365E-06"
+        ixz="2.64168400424935E-20"
+        iyy="1.50442373226496E-05"
+        iyz="-1.16467030247466E-21"
+        izz="1.75774931470922E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/left-finger1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+<!--    <collision>-->
+<!--      <origin-->
+<!--        xyz="0 0 0"-->
+<!--        rpy="0 0 0" />-->
+<!--      <geometry>-->
+<!--        <mesh-->
+<!--          filename="../meshes/left-finger1.STL" />-->
+<!--      </geometry>-->
+<!--    </collision>-->
+    <collision>
+      <origin
+        xyz="0.02 -0.00025 0.0045"
+        rpy="0 -1.5708 0.175" />
+      <geometry>
+        <cylinder radius="0.005" length="0.045" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        xyz="0.058 -0.01425 0.0045"
+        rpy="0 -1.5708 -0.88" />
+      <geometry>
+        <cylinder radius="0.005" length="0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_finger_1"
+    type="revolute">
+    <origin
+      xyz="0.055 -0.014 -0.014"
+      rpy="-3.1416 0 -0.2618" />
+    <parent
+      link="left_hand" />
+    <child
+      link="left_finger_1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.7"
+      upper="0.17"
+      effort="6"
+      velocity="60" />
+    <dynamics
+      damping="0"
+      friction="0.15" />
+  </joint>
+  <link name="left_finger_tip_1">
+    <inertial>
+      <mass
+        value="0.001" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.001"/>
+      </geometry>
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.003"/>
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="left_finger_tip_1"
+    type="fixed">
+    <origin
+      xyz="0.065 -0.024 0.00425"
+      rpy="0 0 0" />
+    <parent
+      link="left_finger_1" />
+    <child
+      link="left_finger_tip_1" />
+  </joint>
+  <link
+    name="left_finger_2">
+    <inertial>
+      <origin
+        xyz="0.0353304074990128 0.00448081749082296 0.00434999999999856"
+        rpy="0 0 0" />
+      <mass
+        value="0.0262995066859834" />
+      <inertia
+        ixx="2.82517718813583E-06"
+        ixy="-4.20174090322367E-06"
+        ixz="-1.43730903237214E-20"
+        iyy="1.50442373226497E-05"
+        iyz="1.79994501291539E-20"
+        izz="1.75774931470923E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="../meshes/left-finger2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+<!--    <collision>-->
+<!--      <origin-->
+<!--        xyz="0 0 0"-->
+<!--        rpy="0 0 0" />-->
+<!--      <geometry>-->
+<!--        <mesh-->
+<!--          filename="../meshes/left-finger2.STL" />-->
+<!--      </geometry>-->
+<!--    </collision>-->
+    <collision>
+      <origin
+        xyz="0.02 0.00025 0.004"
+        rpy="0 -1.5708 -0.175" />
+      <geometry>
+        <cylinder radius="0.005" length="0.045" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        xyz="0.058 0.01425 0.004"
+        rpy="0 -1.5708 0.88" />
+      <geometry>
+        <cylinder radius="0.005" length="0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_finger_2"
+    type="revolute">
+    <origin
+      xyz="0.055 -0.014 -0.006"
+      rpy="0 0 -0.2618" />
+    <parent
+      link="left_hand" />
+    <child
+      link="left_finger_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.7"
+      upper="0.17"
+      effort="6"
+      velocity="60" />
+    <dynamics
+      damping="0"
+      friction="0.15" />
+  </joint>
+  <link name="left_finger_tip_2">
+    <inertial>
+      <mass
+        value="0.001" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.001"/>
+      </geometry>
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.001"/>
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="left_finger_tip_2"
+    type="fixed">
+    <origin
+      xyz="0.065 0.024 0.00425"
+      rpy="0 0 0" />
+    <parent
+      link="left_finger_2" />
+    <child
+      link="left_finger_tip_2" />
+  </joint>
+</robot>
